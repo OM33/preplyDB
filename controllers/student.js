@@ -1,6 +1,7 @@
 'use strict'
 var fs = require('fs');
 var Student = require('../models/student');
+var path = require('path'); 
 
 var controller = {
     home: function (req, res) {
@@ -20,8 +21,10 @@ var controller = {
         var params = req.body;
         student.name = params.name;
         student.Real_name = params.Real_name;
+        student.email = params.email
         student.location = params.location;
-        student.langs = params.langs;
+        student.dif_time = params.dif_time;
+        student.langs = params.langs;       
         student.age = params.age;
         student.level = params.level;
         student.platform = params.platform;
@@ -134,6 +137,24 @@ var controller = {
                 message: fileName
             });
         }
+    },
+
+    getImageFile: function(req,res){
+        var file = req.params.image;
+        var path_file ='./uploads/' + file;
+        console.log(file); 
+        console.log(path_file);
+
+        fs.access(path_file, fs.constants.F_OK, (err)=> {
+            if(err){
+                return res.status(200).send({
+                    message:'Vamos que tu puedes Resolverlo!'
+                });
+            }else{
+                return res.sendFile(path.resolve(path_file));
+            }
+        });
+        
     }
 
 

@@ -6,7 +6,9 @@ var Schema = mongoose.Schema;
 var StudentSchema = Schema({
     'name': String,
     'Real_name': String,
+    'email': String,
     'location': String,
+    'dif_time': Number,
     'langs': String,
     'age': Number,
     'level': String,
