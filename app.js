@@ -16,9 +16,10 @@ app.use((req, res, next) => {
 });
 
 
-//rutas
+//routes
 app.use('/api', student_routes);
-//cargar rutas
+
+//Another way of charging routes
 // app.get('/test', (req, res)=>{
 //     res.status(200).send({
 //         message: "Hola mundo desde mi Api"
@@ -41,10 +42,5 @@ app.use('/api', student_routes);
 
 
 
-
-//CORS
-
-//Rutas
-
-//Exportar
+//Exporting
 module.exports = app;
