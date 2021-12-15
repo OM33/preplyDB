@@ -1,15 +1,18 @@
 'use strict'
 
-var port = 3700;
 var mongoose = require('mongoose');
 const app = require('./app');
 
+require('dotenv').config({path:'.env'});
+
+const host = process.env.HOST || '0.0.0.0';
+const port = process.env.PORT || 3000;
+
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://olga:preplydb123@preplycluster0.gdoha.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').then(() => {
-    app.listen(port, () => {
-        console.log('connection stablished with success in heroku');
+mongoose.connect(process.env.DBLOCAL).then(() => {
+    app.listen(port, host, () => {
+        console.log('connection stablished with success in localhost 3700');
     });
 })
     .catch(err => console.log(err));
 
-app.set('port', process.env.PORT || 3700);
