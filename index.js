@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 const app = require('./app');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://olga:<password>@preplycluster0.gdoha.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').then(() => {
+mongoose.connect('mongodb+srv://olga:preplydb123@preplycluster0.gdoha.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').then(() => {
     app.listen(port, () => {
         console.log('connection stablished with success in heroku');
     });
