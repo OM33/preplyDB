@@ -15,6 +15,7 @@ router.put('/student/:id', StudentController.updateStudent);
 router.delete('/student/:id', StudentController.deleteStudent);
 router.post('/upload-image/:id', multipartMiddleware, StudentController.uploadImage);
 router.get('/get-image/:image', StudentController.getImageFile);
+router.get('**', StudentController.home)
 
 
 module.exports = router;
