@@ -4,12 +4,12 @@ var port = 3700;
 var mongoose = require('mongoose');
 const app = require('./app');
 
-app.set('port', process.env.PORT || 3700);
-
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/Preply-Database').then(() => {
+mongoose.connect('mongodb+srv://olga:<password>@preplycluster0.gdoha.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').then(() => {
     app.listen(port, () => {
-        console.log('connection stablished with success in localhost:3700');
+        console.log('connection stablished with success in heroku');
     });
 })
     .catch(err => console.log(err));
+
+app.set('port', process.env.PORT || 3700);
